@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Failure-Aware RL: Reliable Offline-to-Online Reinforcement Learning with Self-Recovery for Real-World Manipulation">
+  <meta name="keywords" content="Reinforcement Learning; Manipulation; Robot Safety ">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Failure-Aware RL: Reliable Offline-to-Online Reinforcement Learning with Self-Recovery for Real-World Manipulation</title>
+
+  <!-- Default Statcounter code for Failure Aware RL
+  http://failure-aware-rl.github.io -->
+  <script type="text/javascript">
+    var sc_project=13187594; 
+    var sc_invisible=1; 
+    var sc_security="1680dcd8"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img class="statcounter"
+    src="https://c.statcounter.com/13187594/0/1680dcd8/1/" alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Failure-Aware RL: Reliable Offline-to-Online Reinforcement Learning with Self-Recovery for Real-World Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://li-huanyu.github.io/">Huanyu&nbsp;Li</a><sup>1,2,*</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://lei-kun.github.io/">Kun&nbsp;Lei</a><sup>1,2,*</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://scholar.google.com/citations?user=uRb-bJoAAAAJ">Sheng&nbsp;Zang</a><sup>4</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://hukz18.github.io/">Kaizhe&nbsp;Hu</a><sup>3</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://cheryyunl.github.io/">Yongyuan&nbsp;Liang</a><sup>6</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://personal.ntu.edu.sg/boan/">Bo&nbsp;An</a><sup>4</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://personal.ntu.edu.sg/xlli/">Xiaoli&nbsp;Li</a><sup>5</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://hxu.rocks/">Huazhe&nbsp;Xu</a><sup>1,3,&dagger;</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal contribution &nbsp;&nbsp;&nbsp; <sup>&dagger;</sup>Corresponding author</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai Qi Zhi Institute.</span>
+            <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University.</span>
+            <span class="author-block"><sup>3</sup>IIIS, Tsinghua University.</span>
+            <span class="author-block"><sup>4</sup>Nanyang Technological University.</span>
+            <span class="author-block"><sup>5</sup>A*STAR Institute for Infocomm Research.</span>
+            <span class="author-block"><sup>6</sup>University of Maryland, College Park.</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>YouTube</span>
+                </a>
+              </span> -->
+              <!-- Video Link.
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>BiliBili</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Twitter</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(comming soon)</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Teaser video in a hero (matching Consistency Policy layout) -->
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body">
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Video</h2> -->
+          <div class="publication-video">
+            <video autoplay muted playsinline loop controls style="width: 100%; border-radius: 10px;">
+              <source src="./static/videos/main_video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Post-training algorithms based on deep reinforcement learning can push the limits of robotic models for specific objectives, such as generalizability, accuracy, and robustness.
+            However, intervention-requiring failures (e.g., a robot spilling water or breaking fragile glass) during real-world exploration happen inevitably, hindering the practical deployment of such a paradigm.
+            To tackle this, we introduce Failure-Free Offline-to-Online Reinforcement Learning (FARL), a new paradigm minimizing failures during real-world reinforcement learning.
+            We create FailureBench, a benchmark that incorporates common failure scenarios requiring human intervention, and propose an algorithm that integrates a world-model-based safety critic and a recovery policy trained offline to prevent failures during online exploration.
+            Extensive simulation and real-world experiments demonstrate the effectiveness of FARL in significantly reducing such failures while improving performance and generalization during online reinforcement learning post-training.
+            FARL reduces intervention-requiring failures by 73.1% while elevating performance by 11.3% on average during real-world RL post-training.
+            Code of FARL and FailureBench will be publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real-World Training Process</h2>
+
+    <div class="content has-text-centered">
+      <p>
+        We show real-world recordings of the full real-world reinforcement learning training process (50 episodes) of <b>FARL</b> and the vanilla PPO baseline on three real-world tasks.
+      </p>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-5 has-text-centered is-centered">Franka Fragile Push Wall</h3>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-6">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/fragile-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-6">Vanilla PPO</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/fragile-train-worec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-5 has-text-centered is-centered">Franka Disturbed Push</h3>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-6">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/disturbed-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-6">Vanilla PPO</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/disturbed-train-worec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-5 has-text-centered is-centered">Franka Bounded Soccer</h3>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-6">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/soccer-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-6">Vanilla PPO</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/soccer-train-worec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-5 has-text-centered is-centered">Total Intervention-Requiring Failures</h3>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <img src="./static/images/real_failures_comparison.png" style="width: 80%; margin: 0 auto; border-radius:10px;" alt="Total number of failures on three Franka tasks for Uni-O4 (vanilla PPO) and FARL.">
+          <p class="has-text-justified" style="margin-top: 10px;">
+            Total number of real-world intervention-requiring failures over the full online training process (50 episodes) on the three Franka tasks. FARL (&ldquo;Ours&rdquo;) consistently incurs substantially fewer failures than the Uni-O4 baseline (with vanilla PPO online post-training).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Method</h2>
+
+    <div class="container" align="center" style="margin-top: -12px; margin-bottom: 24px;">
+      <img src="./static/images/pipeline_hi.png" style="width: 100%; border-radius: 10px;" alt="Overview of the FARL offline-to-online failure-aware RL pipeline.">
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        FARL is a failure-aware offline-to-online reinforcement learning framework.
+        In the offline phase, we pre-train three components: a task policy \( \pi_{\text{task}} \), a recovery policy \( \pi_{\text{rec}} \), and a world model.
+        The task and recovery policies are first trained by behavior cloning on task or recovery demonstrations and then offline-finetuned with a PPO-style objective.
+        The world model is trained on both task and failure demonstrations to predict short-horizon rewards, values, and a constraint signal that captures near-future intervention-requiring failures.
+      </p>
+      <p>
+        In the online phase, we keep \( \pi_{\text{rec}} \) and the world model fixed and only fine-tune \( \pi_{\text{task}} \) in the real world.
+        For each state, the world model rolls out \( \pi_{\text{task}} \) for a short horizon and estimates a discounted near-future constraint cost \( C_H^{\pi_{\text{task}}} \).
+        If \( C_H^{\pi_{\text{task}}} \le \varepsilon_{\text{safe}} \), we execute the task action and record a task transition; otherwise we execute the recovery action and record a recovery transition.
+        The task policy is then updated with the same PPO objective using advantages computed from these safety-filtered transitions, which improves performance while keeping intervention-requiring failures low.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" >
+  <div class="container is-max-desktop content">
+    <!-- <h2 class="title">BibTeX</h2> -->
+    <h2 class="title is-2" style="text-align: center;">BibTeX</h2>
+    <pre class="bibtex"><code>@inproceedings{li2025failure-aware-rl,
+
+    }</code></pre>
+  </div>
+  <div class="container is-max-desktop content">
+    <!-- <h2 class="title">Contact</h2> -->
+    <h2 class="title is-2" style="text-align: center;">Contact</h2>
+    Feel free to contact <a target="_blank" href="https://Li-Huanyu.github.io/">Huanyu Li</a> if you have any questions on this project.
+  </div>
+</section>
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+        <div class="content">
+          Website template adapted from  <a target="_blank" href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+        </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
