@@ -203,17 +203,263 @@
           <p>
             Post-training algorithms based on deep reinforcement learning can push the limits of robotic models for specific objectives, such as generalizability, accuracy, and robustness.
             However, intervention-requiring failures (e.g., a robot spilling water or breaking fragile glass) during real-world exploration happen inevitably, hindering the practical deployment of such a paradigm.
-            To tackle this, we introduce Failure-Free Offline-to-Online Reinforcement Learning (FARL), a new paradigm minimizing failures during real-world reinforcement learning.
+            To tackle this, we introduce Failure-Aware Offline-to-Online Reinforcement Learning (FARL), a new paradigm minimizing failures during real-world reinforcement learning.
             We create FailureBench, a benchmark that incorporates common failure scenarios requiring human intervention, and propose an algorithm that integrates a world-model-based safety critic and a recovery policy trained offline to prevent failures during online exploration.
             Extensive simulation and real-world experiments demonstrate the effectiveness of FARL in significantly reducing such failures while improving performance and generalization during online reinforcement learning post-training.
             FARL reduces intervention-requiring failures by 73.1% while elevating performance by 11.3% on average during real-world RL post-training.
-            Code of FARL and FailureBench will be publicly available.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-    
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Method</h2>
+
+    <div class="container" align="center" style="margin-top: -12px; margin-bottom: 24px;">
+      <img src="./static/images/pipeline_hi.png" style="width: 100%; border-radius: 10px;" alt="Overview of the FARL offline-to-online failure-aware RL pipeline.">
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        FARL is a failure-aware offline-to-online reinforcement learning framework.
+        In the offline phase, we pre-train three components: a task policy \( \pi_{\text{task}} \), a recovery policy \( \pi_{\text{rec}} \), and a world model.
+        The task and recovery policies are first trained by behavior cloning on task or recovery demonstrations and then offline-finetuned with a PPO-style objective.
+        The world model is trained on both task and failure demonstrations to predict short-horizon rewards, values, and a constraint signal that captures near-future intervention-requiring failures.
+      </p>
+      <p>
+        In the online phase, we keep \( \pi_{\text{rec}} \) and the world model fixed and only fine-tune \( \pi_{\text{task}} \) in the real world.
+        For each state, the world model rolls out \( \pi_{\text{task}} \) for a short horizon and estimates a discounted near-future constraint cost \( C_H^{\pi_{\text{task}}} \).
+        If \( C_H^{\pi_{\text{task}}} \le \varepsilon_{\text{safe}} \), we execute the task action and record a task transition; otherwise we execute the recovery action and record a recovery transition.
+        The task policy is then updated with the same PPO objective using advantages computed from these safety-filtered transitions, which improves performance while keeping intervention-requiring failures low.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><span style="color: #3273dc;">FailureBench</span> for Evaluating Failure-Aware RL</h2>
+
+    <div class="content has-text-centered" style="max-width: 800px; margin: 0 auto 20px auto;">
+      <p>
+        We designed four realistic failure scenarios that typically require human intervention, forming <b>FailureBench</b>, a benchmark suite built on MetaWorld for evaluating failure-aware RL algorithms.
+      </p>
+    </div>
+
+    <!-- Row 1: Bounded Push & Bounded Soccer -->
+    <div class="columns is-centered">
+      <div class="column is-one-third has-text-centered">
+        <h4 class="title is-5">Bounded Push</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/sim_demos/task_demos/bounded_push.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-centered" style="margin-top: 8px;">
+          Push puck to target within boundary. Crossing the boundary triggers a failure.
+        </p>
+      </div>
+      <div class="column is-one-third has-text-centered">
+        <h4 class="title is-5">Bounded Soccer</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/sim_demos/task_demos/bounded_soccer.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-centered" style="margin-top: 8px;">
+          Hit ball into goal within boundary. The dynamic ball is prone to failures.
+        </p>
+      </div>
+    </div>
+
+    <!-- Row 2: Fragile Push Wall & Obstructed Push -->
+    <div class="columns is-centered">
+      <div class="column is-one-third has-text-centered">
+        <h4 class="title is-5">Fragile Push Wall</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/sim_demos/task_demos/fragile_push_wall.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-centered" style="margin-top: 8px;">
+          Push fragile object to target behind wall. Collision with wall triggers a failure. <i>(Object-to-wall distance shown in corner)</i>
+        </p>
+      </div>
+      <div class="column is-one-third has-text-centered">
+        <h4 class="title is-5">Obstructed Push</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/sim_demos/task_demos/obstructed_push.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-centered" style="margin-top: 8px;">
+          Push object to goal while avoiding fragile vase. Collision with vase triggers a failure. <i>(Min arm-to-vase distance shown in corner)</i>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Simulation Online Training Demos</h2>
+
+    <div class="content has-text-centered" style="max-width: 900px; margin: 0 auto 20px auto;">
+      <p>
+        We compare typical scenarios during online training between <b>FARL</b> and the baseline Uni-O4 (using vanilla PPO during online). The baseline frequently triggers intervention-requiring failures, while FARL successfully recovers from risky situations. In FARL demos, a <span style="color: #e74c3c; font-weight: bold;">red border</span> indicates the world model predicts a potential failure ahead.
+      </p>
+    </div>
+
+    <!-- Bounded Push -->
+    <h3 class="title is-4 has-text-centered" style="margin-bottom: 16px;">Bounded Push</h3>
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_500.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_1000.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_2177.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_15175.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_19523.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_27217.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_67049.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_96003.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_248413.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_516082.mp4" type="video/mp4"></video>
+    </div>
+    <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_22839_ep_124.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_37724_ep_202.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_60838_ep_356.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_87569_ep_543.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_110035_ep_695.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_126151_ep_667.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_236476_ep_1325.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_655551_ep_4289.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_669659_ep_4406.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_922223_ep_8053.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_934018_ep_8192.mp4" type="video/mp4"></video>
+    </div>
+    </div>
+
+    <!-- Bounded Soccer -->
+    <h3 class="title is-4 has-text-centered" style="margin-bottom: 16px;">Bounded Soccer</h3>
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_750.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_13005.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_28026.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_43213.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_45911.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_48822.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_53135.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_72346.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_94293.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_117736.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_163676.mp4" type="video/mp4"></video>
+    </div>
+    <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512218_ep_3122.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512273_ep_3123.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_537803_ep_3417.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_602201_ep_4318.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683809_ep_3826_good.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683929_ep_3828.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_724123_ep_4122.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_727471_ep_6177.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_811800_ep_7421.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_952828_ep_6161_good.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_999608_ep_6641.mp4" type="video/mp4"></video>
+    </div>
+    </div>
+
+    <!-- Fragile Push Wall -->
+    <h3 class="title is-4 has-text-centered" style="margin-bottom: 16px;">Fragile Push Wall</h3>
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_952.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_1001.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_26495.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_28617.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_44921.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_45063.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_67309.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_72953.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_270130.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_415570.mp4" type="video/mp4"></video>
+    </div>
+    <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_2647_ep_11.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_23831_ep_96.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_96282_ep_388.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_268500_ep_1081.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_402522_ep_1623.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_412782_ep_1665.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_580447_ep_2344.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_604293_ep_2441.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_667984_ep_2703.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_780736_ep_3164.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_942559_ep_3802.mp4" type="video/mp4"></video>
+    </div>
+    </div>
+
+    <!-- Obstructed Push -->
+    <h3 class="title is-4 has-text-centered" style="margin-bottom: 16px;">Obstructed Push</h3>
+    <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_240.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_447.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_1993.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_61662.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_79557.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_134964.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_142740.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_189101.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_243752.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_326102.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_813181.mp4" type="video/mp4"></video>
+    </div>
+    <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_89905_ep_1227.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_90389_ep_1235.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_91291_ep_1249.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_92473_ep_1269.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_93036_ep_1278.mp4" type="video/mp4"></video>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_255602_ep_4129.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_263613_ep_4300.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_370247_ep_6514.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_482337_ep_9164.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_683138_ep_14266.mp4" type="video/mp4"></video>
+      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_984907_ep_22611.mp4" type="video/mp4"></video>
+    </div>
+    </div>
+
   </div>
 </section>
 
@@ -293,32 +539,6 @@
           </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Method</h2>
-
-    <div class="container" align="center" style="margin-top: -12px; margin-bottom: 24px;">
-      <img src="./static/images/pipeline_hi.png" style="width: 100%; border-radius: 10px;" alt="Overview of the FARL offline-to-online failure-aware RL pipeline.">
-    </div>
-
-    <div class="content has-text-justified">
-      <p>
-        FARL is a failure-aware offline-to-online reinforcement learning framework.
-        In the offline phase, we pre-train three components: a task policy \( \pi_{\text{task}} \), a recovery policy \( \pi_{\text{rec}} \), and a world model.
-        The task and recovery policies are first trained by behavior cloning on task or recovery demonstrations and then offline-finetuned with a PPO-style objective.
-        The world model is trained on both task and failure demonstrations to predict short-horizon rewards, values, and a constraint signal that captures near-future intervention-requiring failures.
-      </p>
-      <p>
-        In the online phase, we keep \( \pi_{\text{rec}} \) and the world model fixed and only fine-tune \( \pi_{\text{task}} \) in the real world.
-        For each state, the world model rolls out \( \pi_{\text{task}} \) for a short horizon and estimates a discounted near-future constraint cost \( C_H^{\pi_{\text{task}}} \).
-        If \( C_H^{\pi_{\text{task}}} \le \varepsilon_{\text{safe}} \), we execute the task action and record a task transition; otherwise we execute the recovery action and record a recovery transition.
-        The task policy is then updated with the same PPO objective using advantages computed from these safety-filtered transitions, which improves performance while keeping intervention-requiring failures low.
-      </p>
     </div>
   </div>
 </section>
