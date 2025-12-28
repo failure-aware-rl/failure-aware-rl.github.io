@@ -182,7 +182,7 @@
           <!-- <h2 class="title is-3">Video</h2> -->
           <div class="publication-video">
             <video autoplay muted playsinline loop controls style="width: 100%; border-radius: 10px;">
-              <source src="./static/videos/main_video.mp4" type="video/mp4">
+              <source src="./static/videos/main-demo-compressed.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -226,7 +226,7 @@
 
     <div class="content has-text-justified">
       <p>
-        FARL is a failure-aware offline-to-online reinforcement learning framework.
+        <b style="color: #FA7F70;">FARL</b> is a failure-aware offline-to-online reinforcement learning framework.
         In the offline phase, we pre-train three components: a task policy \( \pi_{\text{task}} \), a recovery policy \( \pi_{\text{rec}} \), and a world model.
         The task and recovery policies are first trained by behavior cloning on task or recovery demonstrations and then offline-finetuned with a PPO-style objective.
         The world model is trained on both task and failure demonstrations to predict short-horizon rewards, values, and a constraint signal that captures near-future intervention-requiring failures.
@@ -304,7 +304,7 @@
 
     <div class="content has-text-centered" style="max-width: 900px; margin: 0 auto 20px auto;">
       <p>
-        We compare typical scenarios during online training between <b>FARL</b> and the baseline Uni-O4 (using vanilla PPO during online). The baseline frequently triggers intervention-requiring failures, while FARL successfully recovers from risky situations. In FARL demos, a <span style="color: #e74c3c; font-weight: bold;">red border</span> indicates the world model predicts a potential failure ahead.
+        We compare typical scenarios during online training between <b style="color: #FA7F70;">FARL</b> and the baseline Uni-O4 (using vanilla PPO during online). The baseline frequently triggers intervention-requiring failures, while <b style="color: #FA7F70;">FARL</b> successfully recovers from risky situations. In <b style="color: #FA7F70;">FARL</b> demos, a <span style="color: #e74c3c; font-weight: bold;">red border</span> indicates the world model predicts a potential failure ahead.
       </p>
     </div>
 
@@ -329,7 +329,7 @@
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
-      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_22839_ep_124.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_37724_ep_202.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_60838_ep_356.mp4" type="video/mp4"></video>
@@ -367,7 +367,7 @@
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
-      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512218_ep_3122.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512273_ep_3123.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_537803_ep_3417.mp4" type="video/mp4"></video>
@@ -405,7 +405,7 @@
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
-      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_2647_ep_11.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_23831_ep_96.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_96282_ep_388.mp4" type="video/mp4"></video>
@@ -443,7 +443,7 @@
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
-      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">FARL</div>
+      <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_89905_ep_1227.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_90389_ep_1235.mp4" type="video/mp4"></video>
       <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_91291_ep_1249.mp4" type="video/mp4"></video>
@@ -465,71 +465,161 @@
 
 <section class="section">
   <div class="container">
-    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real-World Training Process</h2>
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;"><span style="color: #FA7F70;">FARL</span> in the Real World</h2>
 
-    <div class="content has-text-centered">
+    <div class="content has-text-centered" style="max-width: 900px; margin: 0 auto 20px auto;">
       <p>
-        We show real-world recordings of the full real-world reinforcement learning training process (50 episodes) of <b>FARL</b> and the vanilla PPO baseline on three real-world tasks.
+        We demonstrate how <b style="color: #FA7F70;">FARL</b> and the baseline behave during real-world online training under identical conditions. Starting from the same pre-trained policy and with the same RL exploration noise level, <b style="color: #FA7F70;">FARL</b> actively detects risky situations and triggers recovery to avoid intervention-requiring failures, while the baseline frequently fails.
       </p>
     </div>
 
     <br/>
 
-    <h3 class="title is-5 has-text-centered is-centered">Franka Fragile Push Wall</h3>
+    <h3 class="title is-4 has-text-centered">Franka Fragile Push Wall</h3>
+    <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 12px auto;">
+      The robot must push a fragile object to a target behind a wall. Collision with the wall may damage the object and requires human intervention.
+    </p>
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h4 class="title is-6">FARL</h4>
+        <h4 class="title is-5">Vanilla PPO</h4>
         <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
-          <source src="./static/videos/real_training/fragile-train-wrec-compressed.mp4" type="video/mp4">
+          <source src="./static/videos/real_demos/fragile-nrec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
-        <h4 class="title is-6">Vanilla PPO</h4>
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/fragile-rec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-4 has-text-centered">Franka Disturbed Push</h3>
+    <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 12px auto;">
+      The robot must push an object to a target while avoiding a dynamic obstacle (a decorative flower) randomly moved by a human, simulating unpredictable environmental changes.
+    </p>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Vanilla PPO</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/disturbed-norec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/disturbed-rec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-4 has-text-centered">Franka Bounded Soccer</h3>
+    <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 12px auto;">
+      The robot uses a UMI gripper to kick a ball toward a target on an uneven turf surface. If the ball rolls beyond the boundaries due to irregular surface dynamics, it requires human intervention.
+    </p>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Vanilla PPO</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/soccer-norec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/soccer-rec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <br/>
+
+    <h4 class="title is-6 has-text-centered">Why is Bounded Soccer Challenging?</h4>
+    <div class="columns is-centered">
+      <div class="column is-half has-text-centered">
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_demos/soccer-scripted-compressed.mp4" type="video/mp4">
+        </video>
+        <p class="has-text-centered" style="margin-top: 8px; font-size: 0.9rem;">
+          <i>A scripted policy pushing straight forward on the uneven turf — the ball's trajectory is highly unpredictable.</i>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center; padding-bottom: 10px;">Real-World Training Process</h2>
+
+    <div class="content has-text-centered">
+      <p>
+        We show real-world recordings of the full real-world reinforcement learning training process (50 episodes) of <b style="color: #FA7F70;">FARL</b> and the baseline on real-world tasks.
+      </p>
+    </div>
+
+    <br/>
+
+    <h3 class="title is-4 has-text-centered is-centered">Franka Fragile Push Wall</h3>
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h4 class="title is-5">Vanilla PPO</h4>
         <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/fragile-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/fragile-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <br/>
 
-    <h3 class="title is-5 has-text-centered is-centered">Franka Disturbed Push</h3>
+    <h3 class="title is-4 has-text-centered is-centered">Franka Disturbed Push</h3>
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h4 class="title is-6">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
-          <source src="./static/videos/real_training/disturbed-train-wrec-compressed.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="column has-text-centered">
-        <h4 class="title is-6">Vanilla PPO</h4>
+        <h4 class="title is-5">Vanilla PPO</h4>
         <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/disturbed-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/disturbed-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <br/>
 
-    <h3 class="title is-5 has-text-centered is-centered">Franka Bounded Soccer</h3>
+    <h3 class="title is-4 has-text-centered is-centered">Franka Bounded Soccer</h3>
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h4 class="title is-6">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
-          <source src="./static/videos/real_training/soccer-train-wrec-compressed.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="column has-text-centered">
-        <h4 class="title is-6">Vanilla PPO</h4>
+        <h4 class="title is-5">Vanilla PPO</h4>
         <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/soccer-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
+      <div class="column has-text-centered">
+        <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
+        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+          <source src="./static/videos/real_training/soccer-train-wrec-compressed.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
     <br/>
 
-    <h3 class="title is-5 has-text-centered is-centered">Total Intervention-Requiring Failures</h3>
+    <h3 class="title is-4 has-text-centered is-centered">Total Intervention-Requiring Failures</h3>
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
