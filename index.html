@@ -247,7 +247,7 @@
 
     <div class="content has-text-centered" style="max-width: 800px; margin: 0 auto 20px auto;">
       <p>
-        We designed four realistic failure scenarios that typically require human intervention, forming <b>FailureBench</b>, a benchmark suite built on MetaWorld for evaluating failure-aware RL algorithms.
+        We designed four realistic failure scenarios that suffer from intervention-requiring failures, forming <b>FailureBench</b>, a benchmark suite built on MetaWorld for evaluating failure-aware RL algorithms.
       </p>
     </div>
 
@@ -477,7 +477,7 @@
 
     <h3 class="title is-4 has-text-centered">Franka Fragile Push Wall</h3>
     <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 12px auto;">
-      The robot must push a fragile object to a target behind a wall. Collision with the wall may damage the object and requires human intervention.
+      The robot must push a fragile object to a target behind a wall. Collision with the wall may damage the object and is considered a failure.
     </p>
     <div class="columns is-centered">
       <div class="column has-text-centered">
@@ -519,7 +519,7 @@
 
     <h3 class="title is-4 has-text-centered">Franka Bounded Soccer</h3>
     <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 12px auto;">
-      The robot uses a UMI gripper to kick a ball toward a target on an uneven turf surface. If the ball rolls beyond the boundaries due to irregular surface dynamics, it requires human intervention.
+      The robot uses a UMI gripper to kick a ball toward a target on an uneven turf surface. If the ball rolls beyond the boundaries due to irregular surface dynamics, it is considered a failure.
     </p>
     <div class="columns is-centered">
       <div class="column has-text-centered">
