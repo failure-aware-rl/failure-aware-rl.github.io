@@ -58,6 +58,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script defer src="./static/js/video-autoplay.js"></script>
 </head>
 <body>
 
@@ -72,7 +73,7 @@
               <a href="https://li-huanyu.github.io/">Huanyu&nbsp;Li</a><sup>1,2*</sup>&nbsp;&nbsp;&nbsp;
               <a href="https://lei-kun.github.io/">Kun&nbsp;Lei</a><sup>1,2*</sup>&nbsp;&nbsp;&nbsp;
               <a href="https://scholar.google.com/citations?user=uRb-bJoAAAAJ">Sheng&nbsp;Zang</a><sup>4</sup>&nbsp;&nbsp;&nbsp;
-              <a href="https://hukz18.github.io/">Kaizhe&nbsp;Hu</a><sup>3</sup>&nbsp;&nbsp;&nbsp;
+              <a href="https://hukz18.github.io/">Kaizhe&nbsp;Hu</a><sup>1,3</sup>&nbsp;&nbsp;&nbsp;
               <a href="https://cheryyunl.github.io/">Yongyuan&nbsp;Liang</a><sup>6</sup>&nbsp;&nbsp;&nbsp;
               <a href="https://personal.ntu.edu.sg/boan/">Bo&nbsp;An</a><sup>4</sup>&nbsp;&nbsp;&nbsp;
               <a href="https://personal.ntu.edu.sg/xlli/">Xiaoli&nbsp;Li</a><sup>5</sup>&nbsp;&nbsp;&nbsp;
@@ -179,7 +180,7 @@
         <div class="column is-four-fifths">
           <!-- <h2 class="title is-3">Video</h2> -->
           <div class="publication-video">
-            <video autoplay muted playsinline loop controls style="width: 100%; border-radius: 10px;">
+            <video data-autoplay="true" preload="none" muted playsinline loop controls style="width: 100%; border-radius: 10px;">
               <source src="./static/videos/main-demo-compressed.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -264,13 +265,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/fragile-nrec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/fragile-rec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -285,13 +286,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/disturbed-norec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/disturbed-rec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -306,13 +307,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/soccer-norec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/soccer-rec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -323,7 +324,7 @@
     <h4 class="title is-6 has-text-centered">Why is Bounded Soccer Challenging?</h4>
     <div class="columns is-centered">
       <div class="column is-half has-text-centered">
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_demos/soccer-scripted-compressed.mp4" type="video/mp4">
         </video>
         <p class="has-text-centered" style="margin-top: 8px; font-size: 0.9rem;">
@@ -351,13 +352,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/fragile-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/fragile-train-wrec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -369,13 +370,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/disturbed-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/disturbed-train-wrec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -387,13 +388,13 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h4 class="title is-5">Vanilla PPO</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/soccer-train-worec-compressed.mp4" type="video/mp4">
         </video>
       </div>
       <div class="column has-text-centered">
         <h4 class="title is-5" style="color: #FA7F70;">FARL</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/real_training/soccer-train-wrec-compressed.mp4" type="video/mp4">
         </video>
       </div>
@@ -429,7 +430,7 @@
     <div class="columns is-centered">
       <div class="column is-one-third has-text-centered">
         <h4 class="title is-5">Bounded Push</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/sim_demos/task_demos/bounded_push.mp4" type="video/mp4">
         </video>
         <p class="has-text-centered" style="margin-top: 8px;">
@@ -438,7 +439,7 @@
       </div>
       <div class="column is-one-third has-text-centered">
         <h4 class="title is-5">Bounded Soccer</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/sim_demos/task_demos/bounded_soccer.mp4" type="video/mp4">
         </video>
         <p class="has-text-centered" style="margin-top: 8px;">
@@ -451,7 +452,7 @@
     <div class="columns is-centered">
       <div class="column is-one-third has-text-centered">
         <h4 class="title is-5">Fragile Push Wall</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/sim_demos/task_demos/fragile_push_wall.mp4" type="video/mp4">
         </video>
         <p class="has-text-centered" style="margin-top: 8px;">
@@ -460,7 +461,7 @@
       </div>
       <div class="column is-one-third has-text-centered">
         <h4 class="title is-5">Obstructed Push</h4>
-        <video autoplay muted playsinline loop controls width="100%" style="border-radius:10px;">
+        <video data-autoplay="true" preload="none" muted playsinline loop controls width="100%" style="border-radius:10px;">
           <source src="./static/videos/sim_demos/task_demos/obstructed_push.mp4" type="video/mp4">
         </video>
         <p class="has-text-centered" style="margin-top: 8px;">
@@ -487,36 +488,36 @@
     <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_500.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_1000.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_2177.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_15175.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_500.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_1000.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_2177.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/pushconstraint_step_15175.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_19523.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_27217.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_67049.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_96003.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_248413.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_516082.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_19523.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_27217.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_67049.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_96003.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_248413.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Baseline/constraint_step_516082.mp4" type="video/mp4"></video>
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_22839_ep_124.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_37724_ep_202.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_60838_ep_356.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_87569_ep_543.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_110035_ep_695.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_22839_ep_124.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_37724_ep_202.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_60838_ep_356.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_87569_ep_543.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_110035_ep_695.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_126151_ep_667.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_236476_ep_1325.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_655551_ep_4289.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_669659_ep_4406.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_922223_ep_8053.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_934018_ep_8192.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_126151_ep_667.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_236476_ep_1325.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_655551_ep_4289.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_669659_ep_4406.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_922223_ep_8053.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedPush/Ours/pushrecovery_success_step_934018_ep_8192.mp4" type="video/mp4"></video>
     </div>
     </div>
 
@@ -525,36 +526,36 @@
     <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_750.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_13005.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_28026.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_43213.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_45911.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_750.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_13005.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_28026.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_43213.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_45911.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_48822.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_53135.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_72346.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_94293.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_117736.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_163676.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_48822.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_53135.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_72346.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_94293.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_117736.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Baseline/constraint_step_163676.mp4" type="video/mp4"></video>
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512218_ep_3122.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512273_ep_3123.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_537803_ep_3417.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_602201_ep_4318.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683809_ep_3826_good.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512218_ep_3122.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_512273_ep_3123.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_537803_ep_3417.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_602201_ep_4318.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683809_ep_3826_good.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683929_ep_3828.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_724123_ep_4122.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_727471_ep_6177.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_811800_ep_7421.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_952828_ep_6161_good.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_999608_ep_6641.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_683929_ep_3828.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_724123_ep_4122.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_727471_ep_6177.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_811800_ep_7421.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_952828_ep_6161_good.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/BoundedSoccer/Ours/recovery_success_step_999608_ep_6641.mp4" type="video/mp4"></video>
     </div>
     </div>
 
@@ -563,36 +564,36 @@
     <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_952.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_1001.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_26495.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_28617.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_250.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_952.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_1001.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_26495.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_28617.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_44921.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_45063.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_67309.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_72953.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_270130.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_415570.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_44921.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_45063.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_67309.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_72953.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_270130.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Baseline/constraint_step_415570.mp4" type="video/mp4"></video>
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_2647_ep_11.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_23831_ep_96.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_96282_ep_388.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_268500_ep_1081.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_402522_ep_1623.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_2647_ep_11.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_23831_ep_96.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_96282_ep_388.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_268500_ep_1081.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_402522_ep_1623.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_412782_ep_1665.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_580447_ep_2344.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_604293_ep_2441.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_667984_ep_2703.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_780736_ep_3164.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_942559_ep_3802.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_412782_ep_1665.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_580447_ep_2344.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_604293_ep_2441.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_667984_ep_2703.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_780736_ep_3164.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/FragilePushWall/Ours/recovery_success_step_942559_ep_3802.mp4" type="video/mp4"></video>
     </div>
     </div>
 
@@ -601,36 +602,36 @@
     <div style="border: 1px solid #ddd; border-radius: 12px; padding: 16px; margin-bottom: 30px;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem;">Baseline</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_240.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_447.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_1993.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_61662.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_79557.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_240.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_447.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_1993.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_61662.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_79557.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_134964.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_142740.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_189101.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_243752.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_326102.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_813181.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_134964.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_142740.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_189101.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_243752.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_326102.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Baseline/constraint_step_813181.mp4" type="video/mp4"></video>
     </div>
     <hr style="border: none; border-top: 1px dashed #ccc; margin: 12px 0;">
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 6px;">
       <div style="display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; color: #FA7F70;">FARL</div>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_89905_ep_1227.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_90389_ep_1235.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_91291_ep_1249.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_92473_ep_1269.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_93036_ep_1278.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_89905_ep_1227.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_90389_ep_1235.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_91291_ep_1249.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_92473_ep_1269.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_93036_ep_1278.mp4" type="video/mp4"></video>
     </div>
     <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 30px;">
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_255602_ep_4129.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_263613_ep_4300.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_370247_ep_6514.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_482337_ep_9164.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_683138_ep_14266.mp4" type="video/mp4"></video>
-      <video autoplay muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_984907_ep_22611.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_255602_ep_4129.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_263613_ep_4300.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_370247_ep_6514.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_482337_ep_9164.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_683138_ep_14266.mp4" type="video/mp4"></video>
+      <video data-autoplay="true" preload="none" muted playsinline loop style="width: 100%; border-radius: 6px;"><source src="./static/videos/sim_demos/separated_training/ObstructedPush/Ours/recovery_success_step_984907_ep_22611.mp4" type="video/mp4"></video>
     </div>
     </div>
 
