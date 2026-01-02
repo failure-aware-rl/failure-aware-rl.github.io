@@ -2,6 +2,33 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.abstract-key {
+  color: #FA7F70;
+  font-weight: 700;
+}
+
+.abstract-bench {
+  color: hsl(204, 86%, 53%);
+  font-weight: 700;
+}
+
+.abstract-emph {
+  background: linear-gradient(transparent 60%, rgba(250, 127, 112, 0.18) 60%);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.abstract-result {
+  background: rgba(50, 115, 220, 0.08);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.abstract-metric {
+  color: #FA7F70;
+  font-weight: 800;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
